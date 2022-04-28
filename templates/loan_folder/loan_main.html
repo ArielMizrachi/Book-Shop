@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block title %}
+cars
+{% endblock %}
+
+<body>
+    {% block content %}
+    <h1>please chose an option from the one below</h1>
+    <a class="btn btn-primary" href="/loan/loan_choose_book" role="button">add  a loan</a>
+    <a class="btn btn-primary" href="/loan/loan_search_and_return" role="button">view all loans and delete(if you want)</a>
+    <a class="btn btn-primary" href="/loan/view_late_loans" role="button">view late loans</a>
+    {% endblock %}
+
+</body>

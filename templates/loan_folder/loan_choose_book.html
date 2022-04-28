@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+why so empty?
+{% endblock %}
+
+<body>
+  {% block msg %}
+  <h2>{{msg}}</h2>
+  {% endblock %}
+    {% block content %}
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+        {% for book in book_list %}
+        <div class="col">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">{{ book.name}} </h5>
+                <p class="card-text">- id:{{book.id}}</p>
+                <p class="card-text">- published year:{{ book.published_year}}</p>
+                <p class="card-text">- type:{{ book.type}}</p>
+                <a class="btn btn-success" href="/loan/loan_choose_customer?id={{book.id}}&type={{ book.type}}">add</a>
+              </div>
+            </div>
+          </div>
+     
+        {% endfor %}
+        </div>
+    {% endblock %}
+
+</body>

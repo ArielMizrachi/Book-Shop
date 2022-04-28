@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block title %}
+books
+{% endblock %}
+
+<body>
+    {% block content %}
+    <form action="#" method="POST">
+        <p>Name:</p>
+        <p><input type="text" name="name" /></p>
+        <p>city:</p>
+        <p><input type="text" name="city" /></p>
+        <p>age:</p>
+        <p><input type="text" name="age" /></p>
+        <p><input type="submit" value="submit"/></p>
+    </form>
+    {% endblock %}
+
+</body>

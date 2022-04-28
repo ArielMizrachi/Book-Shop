@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block title %}
+cars
+{% endblock %}
+
+<body>
+    {% block content %}
+    <h1>please chose an option from the one below</h1>
+    <a class="btn btn-primary" href="/book/book_add" role="button">add  a book</a>
+    <a class="btn btn-primary" href="/book/book_search_and_delete" role="button">view all books and delete(if you want)</a>
+    <a class="btn btn-primary" href="/book/view_specific_book" role="button">view a specific book</a>
+    {% endblock %}
+
+</body>
