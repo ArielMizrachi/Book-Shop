@@ -1,10 +1,7 @@
-from sqlalchemy import  Column ,String  ,Integer, create_engine ,select 
-from sqlalchemy.orm import declarative_base  ,Session ,relationship
+from sqlalchemy import  Column ,String  ,Integer, select 
+from sqlalchemy.orm import Session ,relationship
 from database import Base ,engine
 
-# engine = create_engine("sqlite:///database/library.db", echo=True, future=True)
-
-# Base = declarative_base()
 
 # table customer
 class CUSTOMER(Base):

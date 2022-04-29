@@ -1,10 +1,8 @@
-from sqlalchemy import  Column ,String  ,Integer, create_engine ,select 
-from sqlalchemy.orm import declarative_base  ,Session ,relationship
+from sqlalchemy import  Column ,String  ,Integer ,select 
+from sqlalchemy.orm import Session ,relationship
 from database import Base ,engine
+from database import LOAN
 
-# engine = create_engine("sqlite:///database/library.db", echo=True, future=True)
-
-# Base = declarative_base()
 
 # table books
 class BOOK(Base):
@@ -81,6 +79,20 @@ class BOOK(Base):
             session.commit()
 
 
+# print all available books (return a list)
+    def available_books(self ):
+        with Session(engine) as session:
+
+            # opening a list for trasner
+            book_list = []
+            loans = select(LOAN.book_id)
+            chk_books = select(BOOK).where(BOOK.id.not_in(loans))
+            
+
+            for book in session.scalars(chk_books):
+                book_list.append({'id':book.id ,'name' :book.name ,'auther':book.author ,'published_year':book.published_year ,'type':book.type})
+                print(str(book))
+            return book_list
  
 
     

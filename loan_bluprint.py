@@ -2,9 +2,11 @@ from flask import  Blueprint, render_template ,request
 import database
 from database.customer_db import CUSTOMER
 from database.loan_db import  LOAN
+from database.book_db import BOOK
 
 loan = Blueprint('loan',__name__,url_prefix='/loan')
 
+book_marker=BOOK()
 customer_marker=CUSTOMER()
 loan_marker =LOAN()
 loan_marker.the_first()
@@ -21,7 +23,7 @@ def loan_main():
 def loan_choose_book():
 
      # making a list of avilable books
-     book_list = loan_marker.available_books()
+     book_list = book_marker.available_books()
      if len(book_list) == 0:
           msg = 'no avilable books sorry'
           return render_template ('loan_folder/loan_choose_book.html' , book_list =book_list,msg =msg)

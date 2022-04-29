@@ -28,7 +28,7 @@ def customer_add():
 
           # getting all the customers for display
           customer_list=customer_narker.print_all()
-          msg = f'we added the customer {customer}'
+          msg = f'we added the customer {name}'
           return render_template ('customer_folder/customer_search_and_delete.html', customer_list =customer_list,msg = msg)
      
      return render_template('customer_folder/customer_add.html')

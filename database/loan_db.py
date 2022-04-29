@@ -1,13 +1,7 @@
 from sqlalchemy import  Column  ,Integer, create_engine ,select ,ForeignKey
 from sqlalchemy.orm import declarative_base  ,Session
 from datetime import date , timedelta ,datetime
-from database.book_db import BOOK
-from database.customer_db import CUSTOMER
 from database import Base ,engine
-
-# engine = create_engine("sqlite:///database/library.db", echo=True, future=True)
-
-# Base = declarative_base()
 
 # table loan (note:delete the loan if the book or id is deleted)
 class LOAN(Base):
@@ -108,18 +102,5 @@ class LOAN(Base):
 
             return overdue_list
 
-      # print all available books (return a list)
-    def available_books(self ):
-        with Session(engine) as session:
-
-            # opening a list for trasner
-            book_list = []
-            loans = select(LOAN.book_id)
-            chk_books = select(BOOK).where(BOOK.id.not_in(loans))
-            
-
-            for book in session.scalars(chk_books):
-                book_list.append({'id':book.id ,'name' :book.name ,'auther':book.author ,'published_year':book.published_year ,'type':book.type})
-                print(str(book))
-            return book_list
+  
 
